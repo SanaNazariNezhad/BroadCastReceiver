@@ -38,7 +38,7 @@ public class BroadCastLogsDBRepository implements IRepository {
         mContext = context.getApplicationContext();
         BroadCastLogsDataBase logsDataBase = Room.databaseBuilder(mContext,
                 BroadCastLogsDataBase.class,
-                "crime.db")
+                "logs.db")
                 .allowMainThreadQueries()
                 .build();
 

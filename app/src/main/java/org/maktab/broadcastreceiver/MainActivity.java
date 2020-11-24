@@ -51,11 +51,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<BroadCastLog> broadCastLogs) {
                 StringBuilder stringLogcat = new StringBuilder();
-                for (int index = 0; index < broadCastLogs.size(); index++) {
-                    stringLogcat = new StringBuilder(broadCastLogs.get(index).getPrimaryId() + "\t\t" +
-                            broadCastLogs.get(index).getEvent() + "\t\t" +
-                            broadCastLogs.get(index).getType() + "\t\t" +
-                            broadCastLogs.get(index).getTimestamp() + "\n\n");
+                List<BroadCastLog> logList = mRepository.getBroadCastLog();
+                for (int index = 0; index < logList.size(); index++) {
+                    stringLogcat = new StringBuilder(logList.get(index).getPrimaryId() + "\t\t" +
+                            logList.get(index).getEvent() + "\t\t" +
+                            logList.get(index).getType() + "\t\t" +
+                            logList.get(index).getTimestamp() + "\n\n");
                 }
                 mTextViewLogcat.setText(stringLogcat);
             }
